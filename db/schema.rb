@@ -10,176 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911030634) do
+ActiveRecord::Schema.define(version: 20170911163715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "street", null: false
-    t.string "street2"
-    t.string "city", null: false
-    t.integer "state_id"
-    t.integer "zip", null: false
+    t.string "street_address"
+    t.string "street_address2"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "big_banners", force: :cascade do |t|
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cart_products", force: :cascade do |t|
-    t.integer "cart_id", null: false
-    t.integer "product_id", null: false
-    t.integer "quantity", default: 1
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "carts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "description"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "frequently_bought_products", force: :cascade do |t|
-    t.integer "frequently_bought_together_id", null: false
-    t.integer "product_id", null: false
+  create_table "items", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.decimal "price"
+    t.integer "inventory_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
-  create_table "frequently_bought_togethers", force: :cascade do |t|
-    t.integer "product_id", null: false
+  create_table "order_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "networks", force: :cascade do |t|
-    t.string "network", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "order_products", force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.integer "product_id", null: false
-    t.integer "quantity", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "order_statuses", force: :cascade do |t|
-    t.string "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.bigint "order_id"
+    t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "status_id", null: false
-    t.decimal "total_amount", default: "0.0"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "network_id", null: false
-    t.string "cardholder", null: false
-    t.string "card_number", null: false
-    t.date "expires", null: false
-    t.string "cvv", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "product_categories", force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "product_pictures", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "category_id", null: false
-    t.text "brief_description"
-    t.text "full_description"
-    t.decimal "price", null: false
-    t.decimal "discount", default: "0.0"
-    t.boolean "on_sale"
-    t.boolean "storefront", default: false
-    t.integer "frequently_bought_together_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_products_on_title"
-  end
-
-  create_table "small_banners", force: :cascade do |t|
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "states", force: :cascade do |t|
-    t.string "state", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
-    t.string "session_token", null: false
-    t.boolean "admin", default: false
-    t.integer "cart_id"
-    t.integer "payment_id"
-    t.integer "address_id"
-    t.integer "watched_list_id"
-    t.index ["session_token"], name: "index_users_on_session_token", unique: true
-  end
-
-  create_table "watched_lists", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.string "name"
+    t.string "username"
+    t.string "password_digest"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "watched_products_lists", force: :cascade do |t|
-    t.integer "watched_list_id", null: false
-    t.integer "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "addresses", "users"
+  add_foreign_key "items", "categories"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "users"
 end
