@@ -7,7 +7,7 @@ class CreatePayments < ActiveRecord::Migration[5.1]
       t.date :expires, null: false
       t.string :cvv, null: false
 
-      t.timestamps, null: false
+      t.timestamps null: false
     end
   end
 end

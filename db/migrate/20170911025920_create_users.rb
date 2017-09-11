@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.integer :payment_id
       t.integer :address_id
 
-      t.timestamps
+      t.timestamps null: false
     end
     add_index "users", "session_token", unique: true
   end

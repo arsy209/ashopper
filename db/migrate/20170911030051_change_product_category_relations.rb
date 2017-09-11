@@ -15,5 +15,5 @@ class ChangeProductCategoryRelations < ActiveRecord::Migration[5.1]
 
     add_index :products, :title
 
-  endd
+  end
 end

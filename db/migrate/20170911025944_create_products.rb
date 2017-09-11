@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.integer :discount, default: 0
       t.boolean :on_sale, default: false
 
-      t.timestamps, null: false
+      t.timestamps null: false
     end
     add_index :products, :title
   end

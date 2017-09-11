@@ -4,7 +4,7 @@ class CreateCategories < ActiveRecord::Migration[5.1]
       t.string :title, null: false
       t.string :description
 
-      t.timestamps, null: false
+        t.timestamps null: false
     end
   end
 end

@@ -13,5 +13,6 @@ class ChangeProductPriceToDecimal2 < ActiveRecord::Migration[5.1]
 
       t.timestamps null: false
     end
-    add_ind
+    add_index :products, :title
+  end
 end

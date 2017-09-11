@@ -1,4 +1,4 @@
-class CreateWatchedListIdToUser < ActiveRecord::Migration[5.1]
+class AddWatchedListIdToUser < ActiveRecord::Migration[5.1]
   def change
 
     drop_table(:users)
