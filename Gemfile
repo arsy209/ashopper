@@ -13,7 +13,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'paperclip', '~> 5.0.0'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'will_paginate'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'autoprefixer-rails'
+gem 'jquery-rails'
+gem "breadcrumbs_on_rails"
+gem 'bootstrap_form'
+gem 'figaro'
+gem 'faker'
+gem 'stripe'
+gem 'placekitten'
+gem 'braintree'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
