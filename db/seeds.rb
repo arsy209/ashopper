@@ -1,7 +1,7 @@
 require 'faker'
 
-admin = User.create!(name: 'admin', username: 'admin', password: 'admin', role: 1)
-user = User.create!(name: 'Harry Potter', username: 'hpotter', password: 'password')
+admin = User.create!(name: 'admin', username: 'admin', password: 'password', role: 1)
+user = User.create!(name: 'Arshdeep', username: 'arsh', password: 'password')
 puts "Seeded Users"
 
 admin.save
