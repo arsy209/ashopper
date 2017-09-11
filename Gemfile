@@ -20,7 +20,6 @@ gem 'jquery-rails'
 gem "breadcrumbs_on_rails"
 gem 'bootstrap_form'
 gem 'figaro'
-gem 'faker'
 gem 'stripe'
 gem 'placekitten'
 gem 'braintree'
