@@ -1,0 +1,2 @@
+class AuthorizedAdminController < ApplicationController
+end
