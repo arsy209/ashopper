@@ -1,0 +1,2 @@
+class FrequentlyBoughtTogether < ApplicationRecord
+end

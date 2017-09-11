@@ -1,0 +1,2 @@
+class WatchedProductsList < ApplicationRecord
+end

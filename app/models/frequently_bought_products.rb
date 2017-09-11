@@ -1,0 +1,2 @@
+class FrequentlyBoughtProducts < ApplicationRecord
+end
