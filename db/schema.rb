@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170911030634) do
     t.string "street", null: false
     t.string "street2"
     t.string "city", null: false
-    t.integer "state_id", null: false
+    t.integer "state_id"
     t.integer "zip", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -56,12 +56,6 @@ ActiveRecord::Schema.define(version: 20170911030634) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "creditcards", force: :cascade do |t|
-    t.string "network", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "frequently_bought_products", force: :cascade do |t|
     t.integer "frequently_bought_together_id", null: false
     t.integer "product_id", null: false
@@ -71,6 +65,12 @@ ActiveRecord::Schema.define(version: 20170911030634) do
 
   create_table "frequently_bought_togethers", force: :cascade do |t|
     t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "networks", force: :cascade do |t|
+    t.string "network", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
