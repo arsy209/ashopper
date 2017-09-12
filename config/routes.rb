@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'items#index'
+  root 'home#index'
 
   namespace :admin do
     get '/dashboard', to: 'dashboard#home'
