@@ -1,0 +1,42 @@
+  <table class="table table-hover">
+  	<div class="col-lg-15">
+  <tr>
+    <td>Order ID</td>
+    <td>Order Status</td>
+    <td>Order Date</td>
+    <td>User</td>
+    <td>Change Order Status</td>
+    <td></td>
+  </tr>
+  <% @orders.reverse.each do |order| %>
+    <tr>
+      <td>
+        <%= link_to "order number: #{order.id}", admin_order_path(order) %>
+      </td>
+      <td>
+        <%= order.status %>
+      </td>
+      <td>
+        <%= order.created_at %>
+      </td>
+      <td>
+        <%= order.user.username %>
+      </td>
+      <td>
+        <% if order.status == 'ordered' %>
+          <%= button_to 'Mark as Paid', admin_markpaid_path(order), method: 'get', class: 'btn-xs btn-primary' %>
+        <% else %>
+          <%= button_to 'Mark as Completed', admin_markcompleted_path(order), method: 'get', class: 'btn-xs btn-primary' %>
+        <% end %>
+      </td>
+      <% if order.status == 'paid' || order.status == 'ordered' %>
+        <td>
+          <%= button_to 'Cancel', admin_markcancel_path(order), method: 'get', class: 'btn-xs btn-danger' %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</div>
+</table>
+<br/>
+<%= will_paginate(@orders, class: 'flickr_pagination') %>
