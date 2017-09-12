@@ -90,15 +90,15 @@
             </div>
 
             <div class="collapse clearfix" id="search">
-              <div class="search">
-              <%= form_tag(categories_path, method: "get", id: "search-categories") do %>
-                <%= text_field_tag(:search, params[:search], placeholder: "Search Category", class: "form-group") %>
-                <%= submit_tag("Search", name: nil, class: "btn btn-primary") %>
-              <% end %>
-            </div>
+              <ul class="search">
+            <%= form_tag(items_path, method: "get", id: "search-items") do %>
+              <%= text_field_tag(:search, params[:search], placeholder: "Search Items",:size=>"40") %>
+              <%= submit_tag("Search", name: nil, class: "btn btn-primary") %>
+            <% end %>
+          </ul>
             <div class="search">
             <%= form_tag(categories_path, method: "get", id: "search-categories") do %>
-              <%= text_field_tag(:search, params[:search], placeholder: "Search Category", class: "form-group") %>
+              <%= text_field_tag(:search, params[:search], placeholder: "Search Category",:size=>"40", class: "form-group") %>
               <%= submit_tag("Search", name: nil, class: "btn btn-primary") %>
             <% end %>
           </div>
