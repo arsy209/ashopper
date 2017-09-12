@@ -13,7 +13,6 @@
     <div id="top">
       <div class="container">
         <div class="col-md-6 offer" data-animate="fadeInDown">
-          <!-- <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $50!</a> -->
         </div>
           <div class="col-md-6" data-animate="fadeInDown">
             <ul class="menu">
@@ -21,10 +20,9 @@
               <li class="btn btn-success btn-sm"><%= link_to "#{current_user.name.upcase}", admin_dashboard_path %></li>
                 <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %></li>
                 <% elsif current_user %>
-                <li class="navbar-link-items"><%= link_to "Items", items_path %></li>
-                <li class="btn btn-success btn-sm"><%= link_to " #{current_user.name}", dashboard_path %></li>
-                  <%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %>
-                  <li class="navbar-link-orders"><%= link_to "Orders", orders_path %></li>
+                <li ><%= link_to "#{current_user.name}", dashboard_path , class: "btn btn-success btn-sm"%></li>
+                <li ><%= link_to "Orders", orders_path, class: "btn btn-primary btn-sm" %></li>
+                <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %><li>
                   <% else %>
 
                   <li class="navbar-link-login"><%= link_to "Log In", login_path %></li>
@@ -37,11 +35,6 @@
         <div class="navbar navbar-default yamm" role="navigation" id="navbar">
           <div class="container">
             <div class="navbar-header">
-
-                <!-- <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
-                    <img src="img/logo.png" alt="Obaju logo" class="hidden-xs">
-                    <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
-                </a> -->
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
