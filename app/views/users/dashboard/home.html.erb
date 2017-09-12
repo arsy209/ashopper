@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    <hr>
+    <ul class="nav nav-pills nav-stacked">
+      <li class="nav-header"></li>
+      <li><%= link_to 'View All Items',items_path%></li>
+      <li><%=link_to 'Edit Account', edit_user_path(@user)%></li>
+      <li><%= link_to 'Leave Dashboard', root_path%></li>
+    </ul>
+    <hr>
+	</div>
+  <div class="col-md-9">
+     <h2><i class="glyphicon glyphicon-dashboard"></i> Hello User  <%= " #{@user.name}" %>:</strong></h2>
+    	<hr>
+  	<div class="row">
+      <div class="col-lg-15">
+        <hr>
+        <div class="btn-group btn-group-justified">
+          <a href="#" class="btn btn-primary col-sm-3"><i class="glyphicon glyphicon-plus"></i><br>  Service</a>
+          <a href="#" class="btn btn-primary col-sm-3"><i class="glyphicon glyphicon-cloud"></i><br>Cloud</a>
+          <a href="#" class="btn btn-primary col-sm-3"><i class="glyphicon glyphicon-cog"></i><br>Tools </a>
+          <a href="#" class="btn btn-primary col-sm-3">  <i class="glyphicon glyphicon-question-sign"></i><br>Help</a>
+        </div>
+        <hr>
+        <div class="col-md-15">
+            <%= link_to 'View All Past Orders', orders_path %>
+      <%= render partial: 'users/orders' %>
+
+		      <hr>
+        </div>
+      </div>
+	   </div>
+   </div>
+ </div>
+
+
+
+  </div>
