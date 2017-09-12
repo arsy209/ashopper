@@ -1,0 +1,30 @@
+<div id="all">
+  <div id="content">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <div class="box">
+            <h1>Edit Account</h1>
+            <p class="lead">*Password is needed for update*</p>
+            <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+            <hr>
+          <%= bootstrap_form_for(@user) do |f| %>
+              <div class="form-group">
+              <%= f.text_field :name %>
+              </div>
+              <div class="form-group">
+            <%= f.text_field :username %>
+              </div>
+              <div class="form-group">
+               <%= f.password_field :password %>
+              </div>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i>update</button>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
