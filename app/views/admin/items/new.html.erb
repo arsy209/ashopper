@@ -1,0 +1,30 @@
+<% @title="New Item" %>
+<div class="col-md-6">
+  <%= bootstrap_form_for @item, :url => admin_items_path do |f| %>
+    <p>
+      <%= f.text_field :title %>
+    </p>
+    <br/>
+    <p>
+      <%= f.text_area :description %>
+    </p>
+    <br/>
+    <p>
+      <%= f.number_field :price %>
+    </p>
+    <br/>
+    <p>
+      <%= f.collection_select :category_id, Category.all, :id, :title %>
+    </p>
+    <br/>
+    <p>
+      <%= f.select(:inventory_status, Item.inventory_statuses.keys) %>
+    </p>
+    <br/>
+    <p>
+      <%= f.file_field :image %>
+    </p>
+    <br/>
+    <%= f.primary %>
+  <% end %>
+</div>
