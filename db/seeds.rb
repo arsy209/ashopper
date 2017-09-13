@@ -1,5 +1,7 @@
-require 'faker'
 
+Category.destroy_all
+Item.destroy_all
+User.destroy_all
 admin = User.create!(name: 'admin', username: 'admin', password: 'password', role: 1)
 user = User.create!(name: 'Arshdeep', username: 'arsh', password: 'password')
 puts "Seeded Users"
@@ -14,7 +16,7 @@ end
 puts "Seeded categories"
 
 Category.all.each do |category|
-  1.times do
+  4.times do
     category.items.create!(
       title: Faker::Commerce.product_name,
       description: Faker::Hipster.paragraph,
@@ -37,10 +39,10 @@ puts "Seeded Items"
 end
 puts "Seeded Addresses"
 
-2.times do
+5.times do
   order = user.orders.create!(status: rand(0..3))
 
-  10.times do
+  3.times do
     item = Item.find(rand(1..Item.count))
     order.items.append(item)
   end

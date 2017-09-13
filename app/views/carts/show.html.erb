@@ -1,140 +1,155 @@
+
 <div id="all">
   <div id="content">
     <div class="container">
-      <div class="col-md-12">
-        <ul class="breadcrumb">
-            <li><a href="#">Home</a>
-            </li>
-            <li>Shopping cart</li>
-        </ul>
-      </div>
+      <div class="col-md-9" id="basket">
+        <div class="box">
+          <form method="post">
+            <h1>Shopping cart</h1>
+            <p class="text-muted">You currently have <b><%="( #{@cart.total_count} )" %></b> item(s) in your cart.</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th colspan="2">Product</th>
+                  <th>Quantity</th>
+                  <th>Unit price</th>
+                  <th colspan="2">Total</th>
+                </tr>
+              </thead>
+              <!-- dd -->
+                <tbody>
+                  <% @cart.contents.each do |item_id, quantity| %>
+                  <% item = Item.find(item_id) %>
+                  <tr>
+                    <td><%= image_tag item.image.url(:thumbnail), height: "50", width: "50" %></td>
+                    <td><%= link_to item.title, category_item_path(item.category, item) %></td>
+                    <td>
+                  <%= " #{@cart.contents[item_id]}" %>
+                    </td>
+                    <td><%= number_to_currency(item.price) %></td>
+                    <td>$246.00</td>
+                    <td><a href="#"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                  </tr>
 
-                <div class="col-md-9" id="basket">
+                    <!-- dd -->
+                    <% end %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th colspan="4">Total</th>
+                    <th colspan="5"><%=number_to_currency(@cart.total_dollar_amount)%></th>
+                  </tr>
 
-                    <div class="box">
+                </tfoot>
 
-                        <form method="post" action="checkout1.html">
-
-                            <h1>Shopping cart</h1>
-                            <p class="text-muted">You currently have 3 item(s) in your cart.</p>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">Product</th>
-                                            <th>Quantity</th>
-                                            <th>Unit price</th>
-                                            <th>Discount</th>
-                                            <th colspan="2">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="#">
-                                                    <img src="img/detailsquare.jpg" alt="White Blouse Armani">
-                                                </a>
-                                            </td>
-                                            <td><a href="#">White Blouse Armani</a>
-                                            </td>
-                                            <td>
-                                                <input type="number" value="2" class="form-control">
-                                            </td>
-                                            <td>$123.00</td>
-                                            <td>$0.00</td>
-                                            <td>$246.00</td>
-                                            <td><a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#">
-                                                    <img src="img/basketsquare.jpg" alt="Black Blouse Armani">
-                                                </a>
-                                            </td>
-                                            <td><a href="#">Black Blouse Armani</a>
-                                            </td>
-                                            <td>
-                                                <input type="number" value="1" class="form-control">
-                                            </td>
-                                            <td>$200.00</td>
-                                            <td>$0.00</td>
-                                            <td>$200.00</td>
-                                            <td><a href="#"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th colspan="5">Total</th>
-                                            <th colspan="2">$446.00</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-
-                            </div>
-                            <!-- /.table-responsive -->
-
-                            <div class="box-footer">
-                                <div class="pull-left">
-                                    <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
-                                </div>
-                                <div class="pull-right">
-                                    <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
-                                    <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
-                    <!-- /.box -->
-
-
-
-
-                </div>
-                <!-- /.col-md-9 -->
-
-                <div class="col-md-3">
-                    <div class="box" id="order-summary">
-                        <div class="box-header">
-                            <h3>Order summary</h3>
-                        </div>
-                        <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>Order subtotal</td>
-                                        <th>$446.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Shipping and handling</td>
-                                        <th>$10.00</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Tax</td>
-                                        <th>$0.00</th>
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total</td>
-                                        <th>$456.00</th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
+            </table>
 
             </div>
+
+            <div class="box-footer">
+              <div class="pull-left">
+                <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+              </div>
+
+            </div>
+
+          </form>
 
         </div>
 
+      </div>
+      <div class="col-md-3">
+        <div class="box" id="order-summary">
+          <div class="box-header">
+            <h3>Order summary</h3>
+          </div>
+
+              <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>Order subtotal</td>
+                        <th> <%= number_to_currency(@cart.total_dollar_amount) %></th>
+                      </tr>
+                      <tr>
+                        <td>Shipping and handling</td>
+                        <th>free</th>
+                      </tr>
+                      <tr>
+                        <td>Tax</td>
+                        <th>free</th>
+                      </tr>
+                      <tr class="total">
+                        <td></td>
+                        <th><%= number_to_currency(@cart.total_dollar_amount) %></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="pull-right">
+                    <% if current_user.nil? %>
+                      <%= link_to "Login or Register to Checkout", login_path %>
+                    <% else %>
+                      <%= button_to "Checkout", new_charge_path, method: :get, class: "btn btn-success" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+        </div>
+
+
+
+
+      <!--
+
+            <% @title="Cart" %>
+<div class="row cart-container">
+  <div class="col-md-6 card-deck">
+    <% @cart.contents.each do |item_id, quantity| %>
+      <% item = Item.find(item_id) %>
+      <div class="card item_<%= item.id %>">
+        <img alt="Card image cap" class="card-img-top" src="..."/>
+        <div class="card-block">
+          <h4 class="card-title">
+            <%= item.title %>
+          </h4>
+          <p class="card-text">
+            <%= item.description %>
+          </p>
+          <p class="card-text">
+            Price:
+            <%= number_to_currency(item.price) %>
+          </p>
+        </div>
+        <div class="card-footer">
+          <p>
+            <%= "Quantity: #{@cart.contents[item_id]}" %>
+          </p>
+          <p>
+            Subtotal:
+            <%= number_to_currency(@cart.dollar_subtotal(item)) %>
+          </p>
+          <%= button_to  "#{item.title}", item_path(item), class: "btn btn-success", method: :get %>
+          <%= button_to "Reduce quantity", cart_path(item_id: item.id, quantity_change: -1), method: "put", class: "btn btn-default" %>
+          <%= button_to "Increase quantity", cart_path(item_id: item.id, quantity_change: 1), class: "btn btn-default", method: :put %>
+          <%= button_to  "Remove", cart_path(item_id: item.id), class: "btn btn-default", method: :delete %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="offset-md-2 cart-summary-container">
+    <p>
+      Total:
+      <%= number_to_currency(@cart.total_dollar_amount) %>
+    </p>
+    <% if current_user.nil? %>
+      <%= link_to "Login or Register to Checkout", login_path %>
+    <% else %>
+      <%= button_to "Checkout", new_charge_path, method: :get, class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div> -->
