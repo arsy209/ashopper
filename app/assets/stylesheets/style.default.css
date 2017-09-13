@@ -739,137 +739,7 @@ h1 {
 #content #map {
   height: 400px;
 }
-#content #blog-listing .post,
-#content #blog-homepage .post {
-  margin-bottom: 60px;
-  background: #fff;
-  margin: 0 0 30px;
-  border: solid 1px #e6e6e6;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 20px;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-#content #blog-listing .post h2 a,
-#content #blog-homepage .post h2 a,
-#content #blog-listing .post h4 a,
-#content #blog-homepage .post h4 a {
-  color: #555555;
-}
-#content #blog-listing .post h2 a:hover,
-#content #blog-homepage .post h2 a:hover,
-#content #blog-listing .post h4 a:hover,
-#content #blog-homepage .post h4 a:hover {
-  color: #4fbfa8;
-}
-#content #blog-listing .post .author-category,
-#content #blog-homepage .post .author-category {
-  color: #999999;
-  font-weight: 300;
-}
-#content #blog-listing .post .date-comments a,
-#content #blog-homepage .post .date-comments a {
-  color: #999999;
-  margin-right: 20px;
-}
-#content #blog-listing .post .date-comments a:hover,
-#content #blog-homepage .post .date-comments a:hover {
-  color: #4fbfa8;
-}
-#content #blog-listing .post .intro,
-#content #blog-homepage .post .intro {
-  text-align: left;
-}
-#content #blog-listing .post .image,
-#content #blog-homepage .post .image {
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-#content #blog-listing .post .image img,
-#content #blog-homepage .post .image img {
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
-@media (max-width: 767px) {
-  #content #blog-listing .post .image img.img-responsive,
-  #content #blog-homepage .post .image img.img-responsive {
-    min-width: 100%;
-  }
-}
-#content #blog-listing .post .read-more,
-#content #blog-homepage .post .read-more {
-  text-align: right;
-}
-#content #blog-listing .post:hover .image img,
-#content #blog-homepage .post:hover .image img {
-  -webkit-transform: scale(1.1, 1.1);
-  -ms-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
-}
-#content #blog-homepage .post {
-  margin-bottom: 30px;
-}
-#content #blog-homepage .post h2,
-#content #blog-homepage .post h4,
-#content #blog-homepage .post .author-category,
-#content #blog-homepage .post .read-more {
-  text-align: center;
-}
-#content #blog-homepage .post .intro {
-  font-weight: 300;
-}
-#content #blog-homepage .post .read-more {
-  margin-top: 20px;
-}
-#content #blog-post .author-date {
-  color: #999999;
-  font-weight: 300;
-}
-#content #blog-post #post-content {
-  margin-bottom: 20px;
-}
-#content #blog-post .comment {
-  margin-bottom: 25px;
-}
-#content #blog-post .comment:before,
-#content #blog-post .comment:after {
-  content: " ";
-  display: table;
-}
-#content #blog-post .comment:after {
-  clear: both;
-}
-#content #blog-post .comment .posted {
-  color: #999999;
-  font-size: 12px;
-}
-#content #blog-post .comment .reply {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-}
-#content #blog-post .comment.last {
-  margin-bottom: 0;
-}
-#content #blog-post #comments:before,
-#content #blog-post #comment-form:before,
-#content #blog-post #comments:after,
-#content #blog-post #comment-form:after {
-  content: " ";
-  display: table;
-}
-#content #blog-post #comments:after,
-#content #blog-post #comment-form:after {
-  clear: both;
-}
-#content #blog-post #comments h4,
-#content #blog-post #comment-form h4 {
-  margin-bottom: 20px;
-}
-#content #blog-post #comment-form {
-  margin-bottom: 20px;
-}
+
 #content #customer-orders table tr th,
 #content #customer-orders table tr td {
   vertical-align: baseline;
@@ -970,7 +840,7 @@ h1 {
 /*!
  * Yamm!3
  * Yet another megamenu for Bootstrap 3
- * 
+ *
  * http://geedmo.github.com/yamm3
  */
 .yamm .nav,
