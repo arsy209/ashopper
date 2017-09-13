@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170911163715) do
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.text "long_description"
     t.decimal "price"
     t.integer "inventory_status", default: 0
     t.datetime "created_at", null: false

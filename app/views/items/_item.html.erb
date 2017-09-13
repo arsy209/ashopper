@@ -31,7 +31,7 @@
         <div class="row" id="productMain">
           <div class="col-sm-6">
             <div id="mainImage">
-            <%= image_tag @item.image.url(:thumbnail), height: "330", width: "400" %>
+            <%= image_tag @item.image, height: "330", width: "400" %>
             </div>
           </div>
           <div class="col-sm-6">
@@ -58,7 +58,7 @@
         </div>
         <div class="box" id="details">
           <h4>Product details</h4>
-          <p><%= @item.description %></p>
+          <p><%= @item.long_description %></p>
         </div>
        </div>
       </div>
