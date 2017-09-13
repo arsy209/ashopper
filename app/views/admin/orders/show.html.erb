@@ -1,0 +1,68 @@
+<% @title="Order Number #{@order.id}" %>
+<%= "Order id: #{@order.id}" %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <h4>User</h4>
+      <p>
+        <%= "Full Name: #{@order.user.name}" %>
+      </p>
+      <p>
+        <%= "User Name: #{@order.user.username}" %>
+      </p>
+      <h4>Order Date and Time</h4>
+      <p>
+        <%= @order.created_at %>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <h4>Address</h4>
+      <p>
+        <%= "Street Address: #{@order.user.addresses.first.street_address}" %>
+      </p>
+      <p>
+        <%= "Secondary Address: #{@order.user.addresses.first.street_address2}" %>
+      </p>
+      <p>
+        <%= "City: #{@order.user.addresses.first.city}" %>
+      </p>
+      <p>
+        <%= "State: #{@order.user.addresses.first.state}" %>
+      </p>
+      <p>
+        <%= "Zip Code: #{@order.user.addresses.first.zip_code}" %>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <table class="table-striped">
+        <tr>
+          <td>Item</td>
+          <td>Quantity</td>
+          <td>Line Price</td>
+        </tr>
+        <% @order.contained_items.each do |item, quantity| %>
+          <tr>
+            <td>
+              <%= item.title %>
+            </td>
+            <td>
+              <%= quantity %>
+            </td>
+            <td>
+              <%= number_to_currency(item.price * quantity) %>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td>Total Price:</td>
+          <td>
+            <%= @order.total_price %>
+          </td>
+        </tr>
+      </table>
+      <h5>Order Status:</h5>
+      <%= @order.status.capitalize %>
+    </div>
+  </div>
+</div>
