@@ -14,61 +14,31 @@
            </li>
          </ul>
           <hr>
-          <h4>User section</h4>
-         <ul>
-           <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-           </li>
-           <li><a href="register.html">Regiter</a>
-           </li>
-         </ul>
           <hr class="hidden-md hidden-lg hidden-sm">
         </div>
         <div class="col-md-3 col-sm-6">
-          <h4>Top categories</h4>
-          <h5>Men</h5>
+          <h4>Customer</h4>
          <ul>
-           <li><a href="category.html">T-shirts</a>
-           </li>
-           <li><a href="category.html">Shirts</a>
-           </li>
-           <li><a href="category.html">Accessories</a>
-           </li>
-         </ul>
-         <h5>Ladies</h5>
-         <ul>
-           <li><a href="category.html">T-shirts</a>
-           </li>
-           <li><a href="category.html">Skirts</a>
-           </li>
-           <li><a href="category.html">Pants</a>
-           </li>
-           <li><a href="category.html">Accessories</a>
-           </li>
+           <% if current_admin? %>
+           <li class="btn btn-success btn-sm"><%= link_to "#{current_user.name.upcase}", admin_dashboard_path %></li>
+             <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %></li>
+             <% elsif current_user %>
+             <li ><%= link_to "#{current_user.name}", dashboard_path , class: "btn btn-success btn-sm"%></li>
+             <li ><%= link_to "Orders", orders_path, class: "btn btn-primary btn-sm" %></li>
+             <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %><li>
+               <% else %>
+               <li class="navbar-link-login"><%= link_to "Log In", login_path %></li>
+               <li class="navbar-link-login"><%= link_to "Sign Up", new_user_path %></li>
+               <% end %>
          </ul>
           <hr class="hidden-md hidden-lg">
         </div>
         <div class="col-md-3 col-sm-6">
-         <h4>Where to find us</h4>
-         <p><strong>Obaju Ltd.</strong>
-           <br>13/25 New Avenue
-           <br>New Heaven
-           <br>45Y 73J
-           <br>England
-           <br>
-           <strong>Great Britain</strong>
-         </p>
-          <a href="contact.html">Go to contact page</a>
+
           <hr class="hidden-md hidden-lg">
       </div>
       <div class="col-md-3 col-sm-6">
-        <h4>Get the news</h4>
-        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        <form>
-         <div class="input-group">
-           <input type="text" class="form-control">
-           <span class="input-group-btn"> <button class="btn btn-default" type="button">Subscribe!</button>  </span>
-         </div>
-       </form>
+
         <hr>
         <h4>Stay in touch</h4>
        <p class="social">
