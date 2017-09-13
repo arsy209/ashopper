@@ -1,0 +1,93 @@
+<div id="top">
+  <div class="container">
+    <div class="col-md-6 offer" data-animate="fadeInDown">
+    </div>
+      <div class="col-md-6" data-animate="fadeInDown">
+        <ul class="menu">
+          <% if current_admin? %>
+          <li class="btn btn-success btn-sm"><%= link_to "#{current_user.name.upcase}", admin_dashboard_path %></li>
+            <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %></li>
+            <% elsif current_user %>
+            <li ><%= link_to "#{current_user.name}", dashboard_path , class: "btn btn-success btn-sm"%></li>
+            <li ><%= link_to "Orders", orders_path, class: "btn btn-primary btn-sm" %></li>
+            <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %><li>
+              <% else %>
+
+              <li class="navbar-link-login"><%= link_to "Log In", login_path %></li>
+              <li class="navbar-link-login"><%= link_to "Sign Up", new_user_path %></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    </div>
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+      <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-buttons">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-align-justify"></i>
+                </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only">Toggle search</span>
+                    <i class="fa fa-search"></i>
+                </button>
+                <a class="btn btn-default navbar-toggle" href="/cart">
+                    <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs"><%= "Cart (#{@cart.total_count})" %></span>
+                </a>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" id="navigation">
+          <ul class="nav navbar-nav navbar-left">
+              <li class=""><a href="/">Home</a>
+              </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Categories<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="yamm-content">
+                    <div class="">
+                      <div class="col-md-12">
+                        <ul>
+                          <% @categories.each do |category| %>
+                            <li><%= link_to category.title, category_path(category),  class: "dropdown-item" %></li>
+                          <%end%>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="navbar-link-items"><%= link_to "Items", items_path %></li>
+            <li class=""><a href="/">About Us</a></li>
+            <li class=""><a href="/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="navbar-buttons">
+          <div class="navbar-collapse collapse right" id="basket-overview">
+            <a href="/cart" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><%= "Cart (#{@cart.total_count})" %></span></a>
+          </div>
+          <div class="navbar-collapse collapse right" id="search-not-mobile">
+            <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+              <span class="sr-only">Toggle search</span>
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="collapse clearfix" id="search">
+          <ul class="search">
+        <%= form_tag(items_path, method: "get", id: "search-items") do %>
+          <%= text_field_tag(:search, params[:search], placeholder: "Search Items",:size=>"40") %>
+          <%= submit_tag("Search", name: nil, class: "btn btn-primary") %>
+        <% end %>
+      </ul>
+        <div class="search">
+        <%= form_tag(categories_path, method: "get", id: "search-categories") do %>
+          <%= text_field_tag(:search, params[:search], placeholder: "Search Category",:size=>"40", class: "form-group") %>
+          <%= submit_tag("Search", name: nil, class: "btn btn-primary") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
