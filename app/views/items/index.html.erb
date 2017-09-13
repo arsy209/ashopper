@@ -2,13 +2,6 @@
   <div id="all">
     <div id="content">
       <div class="container">
-       <div class="col-md-12">
-        <ul class="breadcrumb">
-         <li><a href="#">Home</a>
-         </li>
-         <li>Ladies</li>
-        </ul>
-      </div>
       <div class="col-md-3">
         <div class="panel panel-default sidebar-menu">
          <div class="panel-heading">
@@ -39,7 +32,7 @@
              <div class="col-md-10 col-sm-6">
                <ul class="search">
              <%= form_tag(items_path, method: "get", id: "search-items") do %>
-               <%= text_field_tag(:search, params[:search], placeholder: "Search Items",:size=>"60") %>
+               <%= text_field_tag(:search, params[:search], placeholder: "Search Items") %>
                <%= submit_tag("Search", name: nil, class: "btn btn-primary") %>
              <% end %>
            </ul>
