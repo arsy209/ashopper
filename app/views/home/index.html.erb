@@ -51,7 +51,7 @@
      <div class="box">
        <div class="container">
          <div class="col-md-12">
-           <h2>Some Products</h2>
+           <b><h2>Featured Products</h2></b>
          </div>
        </div>
      </div>
@@ -63,16 +63,15 @@
              <div class="flip-container">
                <div class="flipper">
                  <div class="front">
-                    <a href="detail.html"><%= image_tag(t.image, class: 'img-responsive')%></a>
+                    <%= image_tag t.image.url(:thumbnail), height: "330", width: "400",  class:"img-responsive"%>
                  </div>
                  <div class="back">
-                     <a href="detail.html"><%= image_tag(t.image, class: 'img-responsive')%></a>
+                      <%= image_tag t.image.url(:thumbnail), height: "330", width: "400", class:"img-responsive" %>
                   </div>
                 </div>
               </div>
-               <a href="detail.html" class="invisible"><img src="img/product3.jpg" alt="" class="img-responsive"></a>
                <div class="text">
-                 <h3><%= t.title%></h3>
+                 <h3><%= link_to t.title, category_path(t),  class: "dropdown-item" %></h3>
                  <p class="price">$ <%=t.price%></p>
                </div>
              </div>
