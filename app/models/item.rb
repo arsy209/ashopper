@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  has_attached_file :image, styles: { thumbnail: "150x150" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  has_attached_file :image
+validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   belongs_to :category
   has_many :order_items
   has_many :orders, through: :order_items
