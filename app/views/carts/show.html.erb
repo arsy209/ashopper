@@ -23,7 +23,7 @@
                   <% @cart.contents.each do |item_id, quantity| %>
                   <% item = Item.find(item_id) %>
                   <tr>
-                    <td><%= image_tag item.image.url(:thumbnail), height: "50", width: "50" %></td>
+                    <td><%= image_tag item.image, height: "50", width: "50" %></td>
                     <td><%= link_to item.title, category_item_path(item.category, item) %></td>
                     <td>
                   <%= " #{@cart.contents[item_id]}" %>
