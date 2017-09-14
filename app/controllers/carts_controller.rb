@@ -2,6 +2,7 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
+
     id = params[:item_id].to_s
     item = Item.find(id)
     session[:cart] ||= {}
@@ -11,6 +12,8 @@ class CartsController < ApplicationController
   end
 
   def show
+  @user = User.find(session[:user_id])
+
   end
 
   def update
