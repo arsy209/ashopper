@@ -20,12 +20,12 @@
           <h4>Customer</h4>
          <ul>
            <% if current_admin? %>
-           <li class="btn btn-success btn-sm"><%= link_to "#{current_user.name.upcase}", admin_dashboard_path %></li>
-             <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %></li>
+           <li><%= link_to "#{current_user.name.upcase}", admin_dashboard_path %></li>
+             <li><%= link_to "Logout", login_path, method: "delete"%></li>
              <% elsif current_user %>
-             <li ><%= link_to "#{current_user.name}", dashboard_path , class: "btn btn-success btn-sm"%></li>
-             <li ><%= link_to "Orders", orders_path, class: "btn btn-primary btn-sm" %></li>
-             <li><%= link_to "Logout", login_path, method: "delete", class: "btn btn-danger btn-sm" %><li>
+             <li ><%= link_to "#{current_user.name}", dashboard_path %></li>
+             <li ><%= link_to "Orders", orders_path%></li>
+             <li><%= link_to "Logout", login_path, method: "delete" %><li>
                <% else %>
                <li class="navbar-link-login"><%= link_to "Log In", login_path %></li>
                <li class="navbar-link-login"><%= link_to "Sign Up", new_user_path %></li>
