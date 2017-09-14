@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:index, :show]
-  resources :carts, only: [:create,:new]
+  resources :carts, only: [:create]
   resources :charges
 
   get '/cart', to: 'carts#show'
