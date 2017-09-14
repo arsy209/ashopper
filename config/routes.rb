@@ -19,12 +19,12 @@ Rails.application.routes.draw do
     resources :items, only: [:show], module: "categories"
   end
 
-  resources :users, only: [:new, :create, :edit, :update] do
+  resources :users do
     resources :addresses
   end
 
   resources :items, only: [:index, :show]
-  resources :carts, only: [:create]
+  resources :carts, only: [:create,:new]
   resources :charges
 
   get '/cart', to: 'carts#show'

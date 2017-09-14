@@ -9,6 +9,7 @@
       <li><%=link_to 'Edit Account', edit_user_path(@user)%></li>
       <li><%= link_to 'Leave Dashboard', root_path%></li>
       <li>      <%= link_to 'View All Items', admin_items_path %></li>
+      <%= button_to 'Add Address', new_user_address_path(@user, @user.addresses), method: 'get', class:"btn btn-primary"  %>
     </ul>
     <hr>
 	</div>

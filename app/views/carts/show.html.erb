@@ -84,8 +84,9 @@
                     <% if current_user.nil? %>
                       <%= link_to "Login or Register to Checkout", login_path %>
                     <% else %>
-                      <%= button_to "Checkout", new_charge_path, method: :get, class: "btn btn-success" %>
+                    <%= button_to "Checkout", new_user_address_path(@user),  method: 'get',class: "btn btn-success" %>
                     <% end %>
+                      
                   </div>
                 </div>
               </div>

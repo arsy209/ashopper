@@ -1,3 +1,16 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
 <h3>Address </h3>
 <br/>
-<%= render partial: 'addresses/form' %>
+<%@addresses.each do |t|%>
+<%=t.street_address%>
+<%=t.street_address2%>
+<%=t.city%>
+<%=t.state%>
+<%=t.zip_code%>
+<%end%>
+</div></div></div>
+<!-- params.require(:address)
+      .permit(:street_address, :street_address2, :city, :state, :zip_code) -->
