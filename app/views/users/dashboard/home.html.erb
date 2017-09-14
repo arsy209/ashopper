@@ -7,6 +7,8 @@
       <li><%= link_to 'View All Items',items_path%></li>
       <li><%=link_to 'Edit Account', edit_user_path(@user)%></li>
       <li><%= link_to 'Leave Dashboard', root_path%></li>
+      <li><%=link_to 'View Addresses', user_addresses_path(@user, @user.addresses)%></li>
+      <%= button_to 'View Addresses', new_user_address_path(@user, @user.addresses), method: 'get', class:"btn btn-primary"  %>
     </ul>
     <hr>
 	</div>
