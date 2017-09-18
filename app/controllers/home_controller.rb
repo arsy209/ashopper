@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-      @items = Item.limit(8).order("RANDOM()")
+      @items = Item.limit(4).order("RANDOM()")
   end
 end

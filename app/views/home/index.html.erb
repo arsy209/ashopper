@@ -58,14 +58,42 @@
       </div>
       </div>
    <div class="row">
-      <div id="adv_team_4_columns_carousel" class="carousel slide four_shows_one_move team_columns_carousel_wrapper" data-ride="carousel" data-interval="2000" data-pause="hover">
+        <%@items.each do |t| %>
+     <div class="col-md-3 col-sm-6">
+       <span class="thumbnail">
+                  <%= link_to image_tag( t.image, height: "60", width: "100"), category_item_path(t.category, t) %>
+     <h4><%=link_to t.title, category_item_path(t.category, t)%></h4>
+             <p class="price">$29,90</p>
+           <hr class="line">
+           <div class="row">
+             <div class="col-md-6 col-sm-6">
+               <% if t.retired? %>
+                 <button class="disabled btn" type="button">
+                   Item Retired
+                 </button>
+               <% else %>
+                 <%= button_to "Add to Cart", carts_path(item_id: t.id), method: :post, class: "btn btn-primary"%>
+               <% end %>
+               <br>
+               <% if current_admin? %>
+               <%= button_to "Edit Item", edit_admin_item_path(t.id), method: :get, class: "btn btn-warning"%>
+               <br>
+               <% end %>
+             </div>
+          
+
+           </div>
+       </span>
+     </div>
+      <% end %>
+      <!-- <div id="adv_team_4_columns_carousel" class="carousel slide four_shows_one_move team_columns_carousel_wrapper" data-ride="carousel" data-interval="2000" data-pause="hover">
 
          <div class="carousel-inner" role="listbox">
                  <%@items.each do |t| %>
             <div class="item active">
 
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                  <%= link_to image_tag( t.image, height: "250", width: "150"), category_item_path(t.category, t) %>
+                  <%= link_to image_tag( t.image, height: "261", width: "273"), category_item_path(t.category, t) %>
                   <div class="team_columns_item_caption">
                      <h4><%=link_to t.title, category_item_path(t.category, t)%></h4>
                      <hr>
@@ -93,7 +121,7 @@
          </div>
 
 
-      </div>
+      </div> -->
    </div>
 </div>
 
