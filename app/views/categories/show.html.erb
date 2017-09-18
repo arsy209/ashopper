@@ -50,40 +50,34 @@
       </div>
     </div>
     <div class="row products">
-     <%@items.each do |t|%>
-      <div class="col-md-4 col-sm-6">
-         <div class="product">
-           <div class="flip-container">
-              <div class="flipper">
-                <div class="front">
-                <%= link_to image_tag(t.image, class: 'img-responsive'), category_item_path(t.category, t)%>
-               </div>
-               <div class="back">
-                 <%= link_to image_tag(t.image, class: 'img-responsive'), category_item_path(t.category, t)%>
-               </div>
-              </div>
-            </div>
-             <a href="detail.html" class="invisible">
-               <img src="/img/product1.jpg" alt="" class="img-responsive">
-             </a>
-           <div class="text">
-             <h3><%= link_to t.title, category_item_path(t.category, t) %></h3>
-             <p class="price"> $<%=t.price%></p>
+      <%@items.each do |t| %>
+   <div class="col-md-3 col-sm-6">
+     <span class="thumbnail">
+                <%= link_to image_tag( t.image, height: "60", width: "100"), category_item_path(t.category, t) %>
+   <h4><%=link_to t.title, category_item_path(t.category, t)%></h4>
+           <p class="price">$29,90</p>
+         <hr class="line">
+         <div class="row">
+           <div class="col-md-6 col-sm-6">
              <% if t.retired? %>
-               <button class="disabled btn" type="button"></button>
-               Item Retired
+               <button class="disabled btn" type="button">
+                 Item Retired
+               </button>
              <% else %>
-              <center> <%= button_to "Add to Cart", carts_path(item_id: t.id), method: :post, class: "btn btn-default" %></center>
+               <%= button_to "Add to Cart", carts_path(item_id: t.id), method: :post, class: "btn btn-primary"%>
              <% end %>
              <br>
              <% if current_admin? %>
-               <center><%= button_to "Edit Item", edit_admin_item_path(t), method: :get, class: "btn btn-warning" %></center>
-               <br>
+             <%= button_to "Edit Item", edit_admin_item_path(t.id), method: :get, class: "btn btn-warning"%>
+             <br>
              <% end %>
            </div>
+
+
          </div>
-       </div>
-        <%end%>
+     </span>
+   </div>
+    <% end %>
      </div>
          <%= will_paginate(@items, class: "flickr_pagination") %>
        </div>
